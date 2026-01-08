@@ -12,13 +12,19 @@ struct ContentView: View {
     @StateObject private var viewModel = BMIViewModel()
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                TextField("Kilonuz (kg)", value: $viewModel.weight, format: .number)
+                    .textFieldStyle(.roundedBorder)
+                    .padding()
+                
+                TextField("Boyunuz (m)", value: $viewModel.height, format: .number)
+                    .textFieldStyle(.roundedBorder)
+                    .padding()
+            }
+            .navigationTitle("BMI Calculator")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .padding()
     }
 }
 
