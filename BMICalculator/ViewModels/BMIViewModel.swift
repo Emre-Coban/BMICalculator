@@ -6,8 +6,8 @@
 //
 
 
-internal import Combine
-
+import Combine
+import SwiftUI
 
 class BMIViewModel: ObservableObject {
     
@@ -26,5 +26,24 @@ class BMIViewModel: ObservableObject {
         } else {
             bmi = 0
         }
+    }
+    
+    // BMI değerine göre durumu metin olarak döndürür
+    var bmiStatus: String {
+        if bmi == 0 { return "" } // Başlangıçta boş
+        else if bmi < 18.5 { return "Zayıf" }
+        else if bmi < 25 { return "Normal" }
+        else if bmi < 30 { return "Fazla Kilolu" }
+        else { return "Obez" }
+    }
+    
+    
+    // BMI değerine göre rengi döndürür
+    var bmiColor: Color {
+        if bmi == 0 { return .black }
+        else if bmi < 18.5 { return .blue }
+        else if bmi < 25 { return .green }
+        else if bmi < 30 { return .orange }
+        else { return .red }
     }
 }

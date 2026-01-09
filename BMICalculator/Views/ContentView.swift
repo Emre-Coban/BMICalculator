@@ -38,7 +38,14 @@ struct ContentView: View {
                 Text("Result: \(String(format: "%.2f", viewModel.bmi))")
                     .font(.title)
                     .fontWeight(.bold)
+                    .foregroundStyle(viewModel.bmiColor)
                     .opacity(viewModel.bmi > 0 ? 1 : 0) // Eğer sonuç 0 ise yazı gizlenir
+                
+                Text(viewModel.bmiStatus)
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(viewModel.bmiColor)
+                    .opacity(viewModel.bmi > 0 ? 1 : 0)
             }
             .navigationTitle("BMI Calculator")
             .navigationBarTitleDisplayMode(.inline)
